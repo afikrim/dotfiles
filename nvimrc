@@ -1,9 +1,9 @@
-" vim-bootstrap 
+" vim-bootstrap 2020-09-26 11:24:37
 
 "*****************************************************************************
 "" Vim-Plug core
 "*****************************************************************************
-let vimplug_exists=expand('~/.vim/autoload/plug.vim')
+let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 if has('win32')&&!has('win64')
   let curl_exists=expand('C:\Windows\Sysnative\curl.exe')
 else
@@ -11,7 +11,7 @@ else
 endif
 
 let g:vim_bootstrap_langs = "go,html,javascript,php,python,ruby,rust,typescript"
-let g:vim_bootstrap_editor = "vim"				" nvim or vim
+let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 let g:vim_bootstrap_theme = "dracula"
 let g:vim_bootstrap_frams = "vuejs"
 
@@ -29,7 +29,7 @@ if !filereadable(vimplug_exists)
 endif
 
 " Required:
-call plug#begin(expand('~/.vim/plugged'))
+call plug#begin(expand('~/.config/nvim/plugged'))
 
 "*****************************************************************************
 "" Plug install packages
@@ -48,12 +48,11 @@ Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
-Plug 'avelino/vim-bootstrap-updater'
+Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -101,6 +100,10 @@ Plug 'jelera/vim-javascript-syntax'
 "" PHP Bundle
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
 Plug 'stephpy/vim-php-cs-fixer'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'noahfrederick/vim-composer'
+Plug 'noahfrederick/vim-laravel'
 
 
 " python
@@ -152,8 +155,8 @@ Plug 'leafOfTree/vim-vue-plugin'
 "*****************************************************************************
 
 "" Include user's extra bundle
-if filereadable(expand("~/.vimrc.local.bundles"))
-  source ~/.vimrc.local.bundles
+if filereadable(expand("~/.config/nvim/local_bundles.vim"))
+  source ~/.config/nvim/local_bundles.vim
 endif
 
 call plug#end()
@@ -169,7 +172,7 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
-set ttyfast
+
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -201,7 +204,7 @@ else
 endif
 
 " session management
-let g:session_directory = "~/.vim/session"
+let g:session_directory = "~/.config/nvim/session"
 let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
@@ -211,7 +214,7 @@ let g:session_command_aliases = 1
 "*****************************************************************************
 syntax on
 set ruler
-set relativenumber number
+set number
 
 let no_buffers_menu=1
 colorscheme dracula
@@ -237,26 +240,15 @@ else
   let g:indentLine_faster = 1
 
   
-  if $COLORTERM == 'gnome-terminal'
-    set term=gnome-256color
-  else
-    if $TERM == 'xterm'
-      set term=xterm-256color
-    endif
-  endif
-  
 endif
 
-
-if &term =~ '256color'
-  set t_ut=
-endif
 
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
 
-set scrolloff=3
+au TermEnter * setlocal scrolloff=0
+au TermLeave * setlocal scrolloff=3
 
 
 "" Status bar
@@ -460,7 +452,6 @@ let g:ale_linters = {}
 let g:ale_fixers = {}
 let g:ale_lint_on_text_changed = 'always'
 
-
 " coc 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -522,6 +513,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
@@ -663,12 +655,6 @@ augroup vimrc-javascript
   autocmd FileType javascript setl tabstop=4|setl shiftwidth=4|setl expandtab softtabstop=4
 augroup END
 
-" ale
-:call extend(g:ale_linters, {
-    \"javascript": ['eslint'], })
-:call extend(g:ale_fixers, {
-    \"javascript": ['prettier'], })
-
 
 " php
 " Phpactor plugin
@@ -695,6 +681,10 @@ nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
 vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
 " Extract method from selection
 vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
+
+" ale
+:call extend(g:ale_fixers, {
+    \'php': ['prettier'], })
 
 
 " python
@@ -790,10 +780,9 @@ let g:yats_host_keyword = 1
 
 " ale
 :call extend(g:ale_linters, {
-    \"typescript": ['tsserver', 'tslint', 'eslint'], })
+    \"typescript": ['tslint'], })
 :call extend(g:ale_fixers, {
     \"typescript": ['prettier'], })
-
 
 
 " vuejs
@@ -802,19 +791,13 @@ let g:vue_disable_pre_processors=1
 " vim vue plugin
 let g:vim_vue_plugin_load_full_syntax = 1
 
-" ale
-:call extend(g:ale_linters, {
-    \"vue": ['eslint'], })
-:call extend(g:ale_fixers, {
-    \"vue": ['eslint', 'prettier'], })
-
 
 "*****************************************************************************
 "*****************************************************************************
 
 "" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
+if filereadable(expand("~/.config/nvim/local_init.vim"))
+  source ~/.config/nvim/local_init.vim
 endif
 
 "*****************************************************************************

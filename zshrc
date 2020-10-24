@@ -73,7 +73,7 @@ colors
 setopt prompt_subst
 
 # Prompt (on left side) similar to default bash prompt, or redhat zsh prompt with colors
- #PROMPT="%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ "
+PROMPT="%(!.%{$fg[red]%}[%n@%m %1~]%{$reset_color%}# .%{$fg[green]%}[%n@%m %1~]%{$reset_color%}$ "
 # Maia prompt
 PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[cyan]%}>%B%(?.%{$fg[cyan]%}.%{$fg[red]%})>%{$reset_color%}%b " # Print some system information when the shell is first started
 # Print a greeting message when shell is started
@@ -140,7 +140,7 @@ git_prompt_string() {
 }
 
 # Right prompt with exit status of previous command if not successful
- #RPROMPT="%{$fg[red]%} %(?..[%?])" 
+RPROMPT="%{$fg[red]%} %(?..[%?])" 
 # Right prompt with exit status of previous command marked with ✓ or ✗
 RPROMPT="%(?.%{$fg[green]%}✓ %{$reset_color%}.%{$fg[red]%}✗ %{$reset_color%})"
 
@@ -164,7 +164,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Use history substring search
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Use nvm
-source /home/azizf/.plugins/zsh/zsh-nvm/zsh-nvm.plugin.zsh
+source $HOME/.plugins/zsh/zsh-nvm/zsh-nvm.plugin.zsh
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -206,18 +206,10 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
 esac
 
 # Apply windows title
-case $TERM in
-  xterm*)
-      precmd () {print -Pn "\e]0;${USER}@${HOST}:%(4~|%-1~/.../%2~|%~) \a" }
-    ;;
-esac
+# case $TERM in
+#   xterm*)
+       precmd () {print -Pn "\e]0;${USER}@${HOST}:%(4~|%-1~/.../%2~|%~) \a" }
+#     ;;
+# esac
 
-source /home/azizf/Documents/Projects/encryptMyFile/crypto.sh
-source /home/azizf/.backupDotfiles.sh
-
-export BIG_HOME=/home/azizf/Documents/Works/BigIO/Merchandise/home
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+source $HOME/.backupDotfiles.sh

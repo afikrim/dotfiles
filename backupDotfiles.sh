@@ -31,7 +31,7 @@ function backup-dotfile() {
     fi
 
     echo "Moving .$1 to $2"
-    mv $dotname $destname
+    mv -f $dotname $destname
     echo "Create symlink $destname to $dotname"
     ln -sf $destname $dotname
 }
