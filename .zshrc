@@ -163,13 +163,13 @@ export LESS=-r
 
 ## Plugins section: Enable fish style features
 # Use dotbare to manage dotfiles
-source /Users/azizf/.zsh/plugins/dotbare/dotbare.plugin.zsh
+source $HOME/.zsh/plugins/dotbare/dotbare.plugin.zsh
 # Use syntax highlighting
-source /Users/azizf/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Use history substring search
-source /Users/azizf/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Use nvm
-source /Users/azizf/.zsh/plugins/zsh-nvm/zsh-nvm.plugin.zsh
+source $HOME/.zsh/plugins/zsh-nvm/zsh-nvm.plugin.zsh
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -179,7 +179,7 @@ bindkey '^[[B' history-substring-search-down
 
 RPROMPT='$(git_prompt_string)'
 	# Use autosuggestion
-	source /Users/azizf/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+	source $HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 	ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
@@ -196,11 +196,11 @@ RPROMPT='$(git_prompt_string)'
 alias pn="pnpm"
 
 # pnpm
-export PNPM_HOME="/Users/azizf/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-export LOCAL_BIN="/Users/azizf/.local/bin"
+export LOCAL_BIN="$HOME/.local/bin"
 export PATH="$LOCAL_BIN:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export PATH="$PATH:$(go env GOPATH)/bin"
@@ -220,6 +220,6 @@ fi
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /Users/azizf/Development/Afikrim/shopee-fs-bot/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/azizf/Development/Afikrim/shopee-fs-bot/node_modules/tabtab/.completions/electron-forge.zsh
+[[ -f $HOME/Development/Afikrim/shopee-fs-bot/node_modules/tabtab/.completions/electron-forge.zsh ]] && . $HOME/Development/Afikrim/shopee-fs-bot/node_modules/tabtab/.completions/electron-forge.zsh
 
 export DOTBARE_DIR="$HOME/.dotfiles"
