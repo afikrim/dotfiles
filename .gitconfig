@@ -1,0 +1,29 @@
+# This is Git's per-user configuration file.
+; [user]
+# Please adapt and uncomment the following lines:
+#	name = Aziz Fikri
+#	email = azizf@Azizs-MacBook-Air.local
+	; name = Aziz Fikri
+	; email = afikrim10@gmail.com
+[includeIf "gitdir:~/Development/Amartha/"]
+  path = ~/.gitconfig-amartha
+[includeIf "gitdir:~/Development/Afikrim/"]
+  path = ~/.gitconfig-personal
+[includeIf "gitdir:~/Development/Freelance/"]
+  path = ~/.gitconfig-freelance
+[includeIf "gitdir:~/Development/Deliv/"]
+  path = ~/.gitconfig-deliv
+
+
+[url "ssh://git@github.com:afikrim"]
+	insteadOf = https://github.com/afikrim
+# [url "ssh://git@gitlab.com:"]
+# 	insteadOf = https://gitlab.com/
+# [url "ssh://git@bitbucket.org:"]
+# 	insteadOf = https://bitbucket.org/
+[url "git@amartha.bitbucket.org:Amartha/"]
+	insteadOf = https://bitbucket.org/Amartha/
+[url "git@amartha.bitbucket.org:Amartha/"]
+	insteadOf = ssh://git@bitbucket.org:Amartha/
+[url "git@amartha.bitbucket.org:Amartha/"]
+	insteadOf = git@bitbucket.org:Amartha/

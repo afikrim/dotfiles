@@ -1,0 +1,21 @@
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:afikrim/.config-nvim.git
+[submodule ".zsh/plugins/zsh-nvm"]
+	path = .zsh/plugins/zsh-nvm
+	url = git@github.com:lukechilds/zsh-nvm.git
+[submodule ".zsh/plugins/zsh-completions"]
+	path = .zsh/plugins/zsh-completions
+	url = git@github.com:zsh-users/zsh-completions.git
+[submodule ".zsh/plugins/zsh-autosuggestions"]
+	path = .zsh/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule ".zsh/plugins/zsh-history-substring-search"]
+	path = .zsh/plugins/zsh-history-substring-search
+	url = git@github.com:zsh-users/zsh-history-substring-search.git
+[submodule ".zsh/plugins/zsh-syntax-highlighting"]
+	path = .zsh/plugins/zsh-syntax-highlighting
+	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
+[submodule ".zsh/plugins/dotbare"]
+	path = .zsh/plugins/dotbare
+	url = git@github.com:kazhala/dotbare.git
