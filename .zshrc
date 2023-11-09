@@ -68,6 +68,7 @@ alias tx='tmux'
 alias txl='tmux list-sessions'
 alias txa='tmux attach-session'
 alias txn='tmux new-session'
+alias pn="pnpm"
 
 # Theming section  
 autoload -U compinit colors zcalc
@@ -190,32 +191,26 @@ RPROMPT='$(git_prompt_string)'
 #     ;;
 # esac
 
-[[ -f "${ZSH_DIR}/profiles/${ZSH_PROFILE}.rc.zsh" ]] &&
-    source "${ZSH_DIR}/profiles/${ZSH_PROFILE}.rc.zsh"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    # Commands specific to Linux
+    alias update='sudo apt update'
+    alias upgrade='sudo apt upgrade'
+    alias install='sudo apt install'
 
-alias pn="pnpm"
+    source "$HOME/.linux.plugin.zsh"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # Commands specific to macOS
+    alias update='brew update'
+    alias upgrade='brew upgrade'
+    alias install='brew install'
 
-# pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-
-export LOCAL_BIN="$HOME/.local/bin"
-export PATH="$LOCAL_BIN:$PATH"
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
-export PATH="$PATH:$(go env GOPATH)/bin"
-
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-export PHPENV_ROOT="$HOME/.local/share/phpenv"
-if [ -d "${PHPENV_ROOT}" ]; then
-  export PATH="${PHPENV_ROOT}/bin:${PATH}"
-  eval "$(phpenv init -)"
+    source "$HOME/.mac.plugin.zsh"
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+    # Commands specific to Cygwin (if applicable)
+    # Add your Cygwin-specific commands here
+elif [[ "$OSTYPE" == "msys" ]]; then
+    # Commands specific to Windows (MSYS)
+    # Add your MSYS-specific commands here
 fi
 
 # tabtab source for electron-forge package
