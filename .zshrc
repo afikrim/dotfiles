@@ -218,3 +218,4 @@ fi
 [[ -f $HOME/Development/Afikrim/shopee-fs-bot/node_modules/tabtab/.completions/electron-forge.zsh ]] && . $HOME/Development/Afikrim/shopee-fs-bot/node_modules/tabtab/.completions/electron-forge.zsh
 
 export DOTBARE_DIR="$HOME/.dotfiles"
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
