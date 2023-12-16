@@ -69,6 +69,8 @@ alias txl='tmux list-sessions'
 alias txa='tmux attach-session'
 alias txn='tmux new-session'
 alias pn="pnpm"
+alias curls="curl -s"
+alias curlt="curl -s -o /dev/null -w '%{time_total}\n'"
 
 # Theming section  
 autoload -U compinit colors zcalc
