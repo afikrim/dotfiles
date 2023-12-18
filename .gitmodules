@@ -1,6 +1,3 @@
-[submodule ".config/nvim"]
-	path = .config/nvim
-	url = git@github.com:afikrim/.config-nvim.git
 [submodule ".zsh/plugins/zsh-nvm"]
 	path = .zsh/plugins/zsh-nvm
 	url = git@github.com:lukechilds/zsh-nvm.git
@@ -22,3 +19,7 @@
 [submodule ".zsh/plugins/ssh-tunnel"]
 	path = .zsh/plugins/ssh-tunnel
 	url = git@github.com:afikrim/zsh-ssh-tunnel.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:afikrim/.config-nvim.git
+	branch = main
