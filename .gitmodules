@@ -19,3 +19,6 @@
 [submodule ".zsh/plugins/dotbare"]
 	path = .zsh/plugins/dotbare
 	url = git@github.com:kazhala/dotbare.git
+[submodule ".zsh/plugins/ssh-tunnel"]
+	path = .zsh/plugins/ssh-tunnel
+	url = git@github.com:afikrim/zsh-ssh-tunnel.git
