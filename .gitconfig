@@ -27,3 +27,9 @@
 	insteadOf = ssh://git@bitbucket.org:Amartha/
 [url "git@amartha.bitbucket.org:Amartha/"]
 	insteadOf = git@bitbucket.org:Amartha/
+[url "git@amartha.bitbucket.org:afikrim_a/"]
+	insteadOf = https://bitbucket.org/afikrim_a/
+[url "git@amartha.bitbucket.org:afikrim_a/"]
+	insteadOf = ssh://git@bitbucket.org:afikrim_a/
+[url "git@amartha.bitbucket.org:afikrim_a/"]
+	insteadOf = git@bitbucket.org:afikrim_a/
