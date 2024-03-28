@@ -23,3 +23,6 @@
 	path = .config/nvim
 	url = git@github.com:afikrim/.config-nvim.git
 	branch = main
+[submodule ".tmux/oh-my-tmux"]
+	path = .tmux/oh-my-tmux
+	url = git@github.com:gpakosz/.tmux.git
