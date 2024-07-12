@@ -8,8 +8,11 @@ export PATH="$LOCAL_BIN:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="$PATH:$(go env GOPATH)/bin"
 
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+export GOOGLE_CLOUD_SDK_ROOT="/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
+if [ -d "{$GOOGLE_CLOUD_SDK_ROOT}" ]; then
+  source "$GOOGLE_CLOUD_SDK_ROOT/completion.zsh.inc"
+  source "$GOOGLE_CLOUD_SDK_ROOT/path.zsh.inc"
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -22,5 +25,7 @@ if [ -d "${PHPENV_ROOT}" ]; then
 fi
 
 # Get java home from libexec
-export JAVA_HOME="$(/usr/libexec/java_home -v 17)"
-export PATH="$JAVA_HOME/bin:$PATH"
+if command -v /usr/libexec/java_home &> /dev/null; then
+  export JAVA_HOME="$(/usr/libexec/java_home -v 17)"
+  export PATH="$JAVA_HOME/bin:$PATH"
+fi

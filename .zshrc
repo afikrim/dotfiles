@@ -173,6 +173,8 @@ source $HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Use nvm
 source $HOME/.zsh/plugins/zsh-nvm/zsh-nvm.plugin.zsh
+# Use rvm
+source $HOME/.zsh/plugins/zsh-rvm/zsh-rvm.plugin.zsh
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -221,3 +223,6 @@ fi
 
 export DOTBARE_DIR="$HOME/.dotfiles"
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
