@@ -9,13 +9,17 @@
   path = ~/.gitconfig-amartha
 [includeIf "gitdir:~/Development/Afikrim/"]
   path = ~/.gitconfig-personal
+[includeIf "gitdir:~/Code/Afikrim/"]
+  path = ~/.gitconfig-personal
 [includeIf "gitdir:~/Development/Freelance/"]
   path = ~/.gitconfig-freelance
 [includeIf "gitdir:~/Development/Deliv/"]
   path = ~/.gitconfig-deliv
+[includeIf "gitdir:~/Code/Mekari/"]
+  path = ~/.gitconfig-mekari
 
 
-[url "ssh://git@github.com:afikrim"]
+[url "git@github.com:afikrim"]
 	insteadOf = https://github.com/afikrim
 # [url "ssh://git@gitlab.com:"]
 # 	insteadOf = https://gitlab.com/
@@ -33,3 +37,18 @@
 	insteadOf = ssh://git@bitbucket.org:afikrim_a/
 [url "git@amartha.bitbucket.org:afikrim_a/"]
 	insteadOf = git@bitbucket.org:afikrim_a/
+[url "git@bitbucket.org:jurnal/"]
+	insteadOf = https://bitbucket.org/jurnal/
+[url "git@bitbucket.org:jurnal/"]
+	insteadOf = ssh://git@bitbucket.org:jurnal/
+[url "git@bitbucket.org:jurnal/"]
+	insteadOf = git@bitbucket.org:jurnal/
+[url "git@bitbucket.org:afikrim_mkr/"]
+	insteadOf = https://bitbucket.org/afikrim_mkr/
+[url "git@bitbucket.org:afikrim_mkr/"]
+	insteadOf = ssh://git@bitbucket.org:afikrim_mkr/
+[url "git@bitbucket.org:afikrim_mkr/"]
+	insteadOf = git@bitbucket.org:afikrim_mkr/
+[user]
+	name = Aziz Fikri Mahmudi
+	email = afikrim10@gmail.com

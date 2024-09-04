@@ -14,7 +14,7 @@ _zsh_rvm_has() {
 
 _zsh_rvm_install() {
   echo "Installing RVM..."
-  \curl -sSL https://get.rvm.io | bash -s stable
+  \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 }
 
 _zsh_rvm_load() {
