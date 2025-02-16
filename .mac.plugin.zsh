@@ -30,9 +30,8 @@ if command -v /usr/libexec/java_home &> /dev/null; then
   export PATH="$JAVA_HOME/bin:$PATH"
 fi
 
-echo 'export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"' >> ~/.zshrc
-
 export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
 
 export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+export PATH="/opt/homebrew/bin:$PATH"

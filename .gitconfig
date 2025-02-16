@@ -52,3 +52,9 @@
 [user]
 	name = Aziz Fikri Mahmudi
 	email = afikrim10@gmail.com
+[diff]
+	tool = nvimdiff
+[core]
+	editor = nvim
+[merge]
+	tool = nvimdiff2
