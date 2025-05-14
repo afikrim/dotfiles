@@ -52,9 +52,12 @@
 [user]
 	name = Aziz Fikri Mahmudi
 	email = afikrim10@gmail.com
+	gpgsign = false
 [diff]
 	tool = nvimdiff
 [core]
 	editor = nvim
 [merge]
 	tool = nvimdiff2
+[commit]
+	gpgsign = true

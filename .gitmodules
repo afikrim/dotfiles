@@ -26,18 +26,16 @@
 [submodule ".tmux/oh-my-tmux"]
 	path = .tmux/oh-my-tmux
 	url = https://github.com/gpakosz/.tmux.git
-[submodule ".config/tmux/plugins/tmux-continuum"]
-	path = .config/tmux/plugins/tmux-continuum
-	url = https://github.com/tmux-plugins/tmux-continuum.git
-[submodule ".config/tmux/plugins/tmux-copycat"]
-	path = .config/tmux/plugins/tmux-copycat
-	url = https://github.com/tmux-plugins/tmux-copycat.git
-[submodule ".config/tmux/plugins/tmux-resurrect"]
-	path = .config/tmux/plugins/tmux-resurrect
-	url = https://github.com/tmux-plugins/tmux-resurrect.git
-[submodule ".config/tmux/plugins/tpm"]
-	path = .config/tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm.git
 [submodule ".config/alacritty/themes"]
 	path = .config/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme.git
+[submodule ".tmux/plugins/tmux-continuum"]
+  path =.tmux/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum.git
+[submodule ".tmux/plugins/tmux-resurrect"]
+  path = .tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect.git
+[submodule ".tmux/plugins/tokyo-night-tmux"]
+	url = https://github.com/janoamaral/tokyo-night-tmux.git
+[submodule ".tmux/plugins/tpm"]
+	url = https://github.com/tmux-plugins/tpm.git
